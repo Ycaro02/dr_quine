@@ -4,17 +4,23 @@ CALL_TESTER	=	./rsc/script/test.sh
 
 CALL_COLLEEN	=	make -s -C src/Colleen/C
 
+CALL_GRACE		=	make -s -C src/Grace/C
+
 all:		${NAME}
 
 ${NAME}:
 		@${CALL_COLLEEN}
+		@${CALL_GRACE}
 		@${CALL_TESTER} src/Colleen/C/Colleen.c
+		@${CALL_TESTER} src/Grace/C/Grace.c
 
 clean:
 		@${CALL_COLLEEN} clean
+		@${CALL_GRACE} clean
 
 fclean:		clean
 		@${CALL_COLLEEN} fclean
+		@${CALL_GRACE} fclean
 
 re:			fclean all
 
