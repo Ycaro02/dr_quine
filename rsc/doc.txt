@@ -1,1 +1,3 @@
+https://en.wikipedia.org/wiki/Kleene%27s_recursion_theorem
+
 https://codegolf.stackexchange.com/questions/577/assembly-language-quine
