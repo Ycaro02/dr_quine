@@ -2,7 +2,7 @@ NAME =	.tester.tester_s
 
 CALL_TESTER	=	./rsc/script/test.sh 
 
-CALL_COLLEEN	=	make -s -C src/Colleen
+CALL_COLLEEN	=	make -s -C src/Colleen/C
 
 all:		${NAME}
 

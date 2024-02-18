@@ -6,7 +6,7 @@
 #    By: ycaro <ycaro@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/12 16:33:38 by nfour             #+#    #+#              #
-#    Updated: 2024/02/18 16:04:18 by ycaro            ###   ########.fr        #
+#    Updated: 2024/02/18 16:18:31 by ycaro            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC		= gcc
 
 CFLAGS	= -Wall -Wextra -Werror -g3
 
-SRCS	=	C/Colleen.c\
+SRCS	=	Colleen.c\
 
 OBJS = $(SRCS:.c=.o)
 
