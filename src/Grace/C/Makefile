@@ -39,12 +39,12 @@ test:		${NAME}
 
 clean:
 			@echo "\033[6;31m -----\tCleaning  ${NAME} obj   ----- \033[0m"
-			@${RM} ${OBJS}
+			@${RM} ${OBJS} ${GRACE_OUT}
 
 
 fclean:		clean
 			@echo "\033[6;33m -----\tCleaning  ${NAME} done  ----- \033[0m"
-			@${RM} ${NAME}
+			@${RM} ${NAME} ${GRACE_OUT}
 
 re:			fclean all
 
