@@ -24,12 +24,11 @@ int main(){int fd = open("Sully_X.c", O_CREAT | O_RDWR, 00777);dprintf(fd,a,10,1
 #include <sys/stat.h>
 #include <fcntl.h>
 
-
-
+// https://man7.org/linux/man-pages/man3/system.3.html
 
 /* Sully printf:
 
-dprintf(fd,a,10,10,10,10,10,10,10,10,10,10,10,34,a,34,10,34,34,10,10,34,34,10)
+dprintf(fd,a,10,10,10,10,10,10,10,10,10,10,10,34,a,34,10,34,34,10,10,34,34,10,10,10,34,34,10,10)
 
 a: start display
 
@@ -42,8 +41,8 @@ a: start display
 10:strings \n
 
 10:main :\n
-10:char *src :\n
-10:char *dest :\n
+10:char *bin :\n
+10:char *name :\n
 10:int x = :\n
 
 34-start char *a
@@ -63,9 +62,31 @@ a: display a def
 10 des[6] = x \n
 10 des[7] = \n
 
+10 ctrcpy bin name
+
 34 strcat .c quotes start
 34 strcat .c quotes end
 10 \n
 
 10: int fd : \n
+10: dprintf \n
+10: close \n
+10: char cmd[2000] \n
+
+quote
+percent
+percent
+percent
+quote
+10
 */
+
+
+
+
+
+// fclose(fd);
+// char cmd[500];
+// sprintf(cmd, "gcc -o %s %s && ./%s", o, t, o);
+// if (i)
+// system(cmd);

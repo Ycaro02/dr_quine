@@ -14,6 +14,8 @@ CC		= gcc
 
 # CFLAGS	= -Wall -Wextra -Werror -g3
 
+CLEAR_SH = ./clear_sully.sh
+
 CFLAGS	= -g3
 
 SRCS	=	Sully.c\
@@ -42,6 +44,7 @@ clean:
 fclean:		clean
 			@echo "\033[6;33m -----\tCleaning  ${NAME} done  ----- \033[0m"
 			@${RM} ${NAME}
+			@${CLEAR_SH}
 
 re:			fclean all
 
