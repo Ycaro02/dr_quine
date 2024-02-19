@@ -1,9 +1,5 @@
 #!/bin/bash
 
-BIN_NAME=test_diff
-
-TMP_OUT=.tmp_output
-
 # Color definition
 RED="\e[31m"
 GREEN="\e[32m"
@@ -12,6 +8,18 @@ BLUE="\e[34m"
 CYAN="\e[36m"
 RESET="\e[0m"
 
-clang -Wall -Wextra -Werror -o ${BIN_NAME} ${1}; ./${BIN_NAME} > ${TMP_OUT} ; diff ${TMP_OUT} ${1} && echo -e "${YELLOW}${1} ${RESET}${GREEN}OK${RESET}"
+BIN_NAME=test_diff
 
-rm ${TMP_OUT} ${BIN_NAME};
+TMP_OUT=.tmp_output
+
+GRACE_C_OUTPUT=src/Grace/C/Grace_kid.c
+
+GRACE_C=src/Grace/C/Grace.c
+
+COLLEEN_C=src/Colleen/C/Colleen.c
+
+clang -Wall -Wextra -Werror -o Colleen ${COLLEEN_C}; ./Colleen > ${TMP_OUT} ; diff ${TMP_OUT} ${COLLEEN_C} && echo -e "${YELLOW}${COLLEEN_C} ${RESET}${GREEN}OK${RESET}"
+
+clang -Wall -Wextra -Werror -o Grace ${GRACE_C}; ./Grace ; diff ${GRACE_C} Grace_kid.c  && echo -e "${YELLOW}${GRACE_C}${RES_COLOR}\t${GREEN}OK${RES_COLOR}"
+
+rm ${TMP_OUT} Colleen Grace_kid.c Grace;

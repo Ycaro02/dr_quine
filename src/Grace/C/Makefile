@@ -20,6 +20,8 @@ OBJS = $(SRCS:.c=.o)
 
 RM	= rm -f
 
+GRACE_OUT = Grace_kid.c
+
 NAME	= 	Grace
 
 all:		${NAME}
@@ -32,7 +34,7 @@ ${NAME}:	$(OBJS)
 			@$(CC) ${CFLAGS} -o $(NAME) $(OBJS)
 			@echo "\033[6;32m -----\tCompiling ${NAME} done  ----- \033[0m"
 
-test:
+test:		${NAME}
 			@./${NAME}
 
 clean:
