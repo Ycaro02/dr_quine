@@ -6,7 +6,7 @@
 #    By: ycaro <ycaro@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/12 16:33:38 by nfour             #+#    #+#              #
-#    Updated: 2024/02/18 16:40:56 by ycaro            ###   ########.fr        #
+#    Updated: 2024/02/18 17:57:48 by ycaro            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,9 @@ ${NAME}:	$(OBJS)
 			@echo "\033[6;36m -----\tCompiling ${NAME}       ----- \033[0m"
 			@$(CC) ${CFLAGS} -o $(NAME) $(OBJS)
 			@echo "\033[6;32m -----\tCompiling ${NAME} done  ----- \033[0m"
+
+test:
+			@./${NAME}
 
 clean:
 			@echo "\033[6;31m -----\tCleaning  ${NAME} obj   ----- \033[0m"
