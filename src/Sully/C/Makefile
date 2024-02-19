@@ -12,7 +12,9 @@
 
 CC		= gcc
 
-CFLAGS	= -Wall -Wextra -Werror -g3
+# CFLAGS	= -Wall -Wextra -Werror -g3
+
+CFLAGS	= -g3
 
 SRCS	=	Sully.c\
 
