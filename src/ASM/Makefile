@@ -34,15 +34,15 @@ all:		${NAME}
 			@$(NASM) $@ $<
 
 ${NAME}:	$(OBJS)
-			@ echo "\033[7;36m ----- Compiling ASM ${NAME} bin    ----- \033[0m"
+			@ echo "\033[6;36m ----- Compiling ASM ${NAME} bin    ----- \033[0m"
 			@gcc -Wall -Wextra -Werror -g -o $(NAME) $(OBJS)
-			@echo "\033[7;32m ----- Compiling ASM ${NAME} done   ----- \033[0m"
+			@echo "\033[6;32m ----- Compiling ASM ${NAME} done   ----- \033[0m"
 
 
 clean:
-			@echo "\033[7;31m\n ----- Cleaning  ASM ${NAME} obj    ----- \033[0m"
+			@echo "\033[6;31m -----  Cleaning  ASM ${NAME} obj    ----- \033[0m"
 			@${RM} ${OBJS}
-			@echo "\033[7;33m ----- Cleaning  ASM ${NAME} done   ----- \033[0m"
+			@echo "\033[6;33m -----  Cleaning  ASM ${NAME} done   ----- \033[0m"
 
 fclean:		clean
 			@${RM} ${NAME}

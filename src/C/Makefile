@@ -62,7 +62,7 @@ clean:
 			@echo "\033[6;31m -----\tCleaning  ${COLLEEN_NAME} obj   ----- \033[0m"
 			@echo "\033[6;31m -----\tCleaning  ${GRACE_NAME} obj   ----- \033[0m"
 			@echo "\033[6;31m -----\tCleaning  ${SULLY_NAME} obj   ----- \033[0m"
-			@${RM} $(COLLEEN_OBJ) ${GRACE_OBJ} ${SULLY_OBJ}
+			@${RM} $(COLLEEN_OBJ) ${GRACE_OBJ} ${SULLY_OBJ} ${GRACE_OUT}
 
 fclean:		clean
 			@echo "\033[6;33m -----\tCleaning  ${COLLEEN_NAME} done  ----- \033[0m"
