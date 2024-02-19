@@ -6,11 +6,15 @@ CALL_COLLEEN	=	make -s -C src/Colleen/C
 
 CALL_GRACE		=	make -s -C src/Grace/C
 
+CALL_SULLY		=	make -s -C src/Sully/C
+
+
 all:		${NAME}
 
 ${NAME}:
 		@${CALL_COLLEEN}
 		@${CALL_GRACE}
+		@${CALL_SULLY}
 
 test:
 		@${CALL_TESTER}
