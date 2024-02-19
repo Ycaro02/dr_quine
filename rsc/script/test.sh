@@ -12,15 +12,15 @@ BIN_NAME=test_diff
 
 TMP_OUT=.tmp_output
 
-GRACE_C_OUTPUT=src/Grace/C/Grace_kid.c
+GRACE_C_OUTPUT=src/C/Grace_kid.c
 
-GRACE_C=src/Grace/C/Grace.c
+GRACE_C=src/C/Grace.c
 
-COLLEEN_C=src/Colleen/C/Colleen.c
+COLLEEN_C=src/C/Colleen.c
 
-SULLY_C=src/Sully/C/Sully.c
+SULLY_C=src/C/Sully.c
 
-SULLY_CLEAR=src/Sully/C/clear_sully.sh
+SULLY_CLEAR=src/C/clear_sully.sh
 
 clang -Wall -Wextra -Werror -o Colleen ${COLLEEN_C}; ./Colleen > ${TMP_OUT} ;
 diff ${TMP_OUT} ${COLLEEN_C} && echo -e "${YELLOW}${COLLEEN_C} ${RESET}${GREEN}OK${RESET}"

@@ -2,32 +2,22 @@ NAME =	.tester.tester_s
 
 CALL_TESTER	=	./rsc/script/test.sh 
 
-CALL_COLLEEN	=	make -s -C src/Colleen/C
-
-CALL_GRACE		=	make -s -C src/Grace/C
-
-CALL_SULLY		=	make -s -C src/Sully/C
+CALL_C_SOURCE	=	make -s -C src/C
 
 
 all:		${NAME}
 
 ${NAME}:
-		@${CALL_COLLEEN}
-		@${CALL_GRACE}
-		@${CALL_SULLY}
+		@${CALL_C_SOURCE}
 
 test:
 		@${CALL_TESTER}
 
 clean:
-		@${CALL_COLLEEN} clean
-		@${CALL_GRACE} clean
-		@${CALL_SULLY} clean
+		@${CALL_C_SOURCE} clean
 
 fclean:		clean
-		@${CALL_COLLEEN} fclean
-		@${CALL_GRACE} fclean
-		@${CALL_SULLY} fclean
+		@${CALL_C_SOURCE} fclean
 
 re:			fclean all
 
