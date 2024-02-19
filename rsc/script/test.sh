@@ -18,7 +18,6 @@ GRACE_C=src/Grace/C/Grace.c
 
 COLLEEN_C=src/Colleen/C/Colleen.c
 
-
 SULLY_C=src/Sully/C/Sully.c
 
 SULLY_CLEAR=src/Sully/C/clear_sully.sh
