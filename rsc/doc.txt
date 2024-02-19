@@ -6,3 +6,16 @@ https://www.geeksforgeeks.org/write-running-c-code-without-main/
 
 https://cs.lmu.edu/~ray/notes/nasmtutorial/ --> ASM DOC
 
+
+
+
+omg using c function in assembly
+; https://www.tortall.net/projects/yasm/manual/html/objfmt-elf64.html
+;https://stackoverflow.com/questions/52126328/cant-call-c-standard-library-function-on-64-bit-linux-from-assembly-yasm-code/52131094#52131094
+;https://stackoverflow.com/questions/48189051/relocation-r-x86-64-32s-against-data-cannot-be-used-when-making-a-shared-object
+
+
+
+
+save
+db "global main%1$cextern printf%1$c%1$csection .text%1$ccolleen:%1$c%2$cpush rbx%1$c%2$cmov rdi, format%1$c%2$cmov rsi, 10%1$c%2$cmov rdx, 9%1$c%2$cmov rcx, 34%1$c%2$cmov r8, format%1$c%2$ccall printf%1$c%2$cpop rbx%1$c%2$cret%1$c%1$cmain:%1$c%2$cpush rbx%1$c%2$ccall colleen%1$c%2$cpop rbx%1$c%1$c%2$c;%1$c%2$c;%2$cCOMMENT2$cmov rax, 0%2$c; return 0%1$c%2$cret%1$c%1$csection .data%1$cformat:%1$c%2$cdb %3$c%4$s%3$c, 0%1$c", 0
