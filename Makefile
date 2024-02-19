@@ -22,10 +22,12 @@ test:
 clean:
 		@${CALL_COLLEEN} clean
 		@${CALL_GRACE} clean
+		@${CALL_SULLY} clean
 
 fclean:		clean
 		@${CALL_COLLEEN} fclean
 		@${CALL_GRACE} fclean
+		@${CALL_SULLY} fclean
 
 re:			fclean all
 
