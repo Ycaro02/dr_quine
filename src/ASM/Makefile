@@ -3,50 +3,51 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ycaro <ycaro@student.42.fr>                +#+  +:+       +#+         #
+#    By: nfour <<marvin@42.fr>>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/12 16:33:38 by nfour             #+#    #+#              #
-#    Updated: 2024/02/18 17:57:48 by ycaro            ###   ########.fr        #
+#    Updated: 2024/02/17 13:45:00 by nfour            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		= gcc
+SRCS	=	Colleen.s
 
-CFLAGS	= -Wall -Wextra -Werror -g3
+NASM	= 	nasm -f elf64 -o
 
-SRCS	=	Grace.c\
+NAME	= 	Colleen
 
-OBJS = $(SRCS:.c=.o)
+# nasm -f elf64 -o Coleen.o Coleen.s && gcc -Wall -Wextra -Werror -g Coleen.o
+
+CC		= 
+
+# LINK	= ld -o -z noexecsstack
+
+OBJS = $(SRCS:.s=.o)
 
 RM	= rm -f
 
-GRACE_OUT = Grace_kid.c
-
-NAME	= 	Grace
-
 all:		${NAME}
 
-%.o : %.c
-	@$(CC) ${CFLAGS} -c $< -o $@
+#nasm -f elf64 -o test.o test.s &&  ld -o test test.o && ./test
+
+%.o : %.s
+			@$(NASM) $@ $<
 
 ${NAME}:	$(OBJS)
-			@echo "\033[6;36m -----\tCompiling ${NAME}       ----- \033[0m"
-			@$(CC) ${CFLAGS} -o $(NAME) $(OBJS)
-			@echo "\033[6;32m -----\tCompiling ${NAME} done  ----- \033[0m"
+			@ echo "\033[7;36m ----- Compiling ASM ${NAME} bin    ----- \033[0m"
+			@gcc -Wall -Wextra -Werror -g -o $(NAME) $(OBJS)
+			@echo "\033[7;32m ----- Compiling ASM ${NAME} done   ----- \033[0m"
 
-test:		${NAME}
-			@./${NAME}
 
 clean:
-			@echo "\033[6;31m -----\tCleaning  ${NAME} obj   ----- \033[0m"
-			@${RM} ${OBJS} ${GRACE_OUT}
-
+			@echo "\033[7;31m\n ----- Cleaning  ASM ${NAME} obj    ----- \033[0m"
+			@${RM} ${OBJS}
+			@echo "\033[7;33m ----- Cleaning  ASM ${NAME} done   ----- \033[0m"
 
 fclean:		clean
-			@echo "\033[6;33m -----\tCleaning  ${NAME} done  ----- \033[0m"
-			@${RM} ${NAME} ${GRACE_OUT}
+			@${RM} ${NAME}
 
 re:			fclean all
 
-
 .PHONY:		all clean fclean re bonus
+
