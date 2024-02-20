@@ -59,9 +59,16 @@ diff_file ${SULLY_ASM_OUT} ${SULLY_ASM}
 COLLEEN_BASH=src/BASH/Colleen.sh
 COLLEEN_BASH_OUT=Colleen_bash_out
 
+GRACE_BASH=src/BASH/Grace.sh
+GRACE_BASH_OUT=Grace_kid.sh
+
 ./${COLLEEN_BASH} > ${COLLEEN_BASH_OUT} 
 diff_file ${COLLEEN_BASH} ${COLLEEN_BASH_OUT}
 rm ${COLLEEN_BASH_OUT}
+
+./${GRACE_BASH}
+diff_file ${GRACE_BASH} ${GRACE_BASH_OUT}
+rm ${GRACE_BASH_OUT}
 
 ./${SULLY_CLEAR} c
 ./${SULLY_CLEAR} o
