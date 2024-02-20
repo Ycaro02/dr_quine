@@ -10,7 +10,7 @@ RESET="\e[0m"
 # COLLEEN QUINE
 COLLEEN_C=src/C/Colleen.c
 COLLEEN_ASM=src/ASM/Colleen.s
-COLEEN_OUT=COLEEN_output
+COLLEEN_OUT=COLEEN_output
 # GRACE QUINE
 GRACE_C=src/C/Grace.c
 GRACE_C_OUTPUT=Grace_kid.c
@@ -29,59 +29,34 @@ SULLY_C_OUT=Sully_5.c
 CALL_ASM_DIR="make -s -C src/ASM"
 CLANG_CC="clang -Wall -Wextra -Werror"
 
-${CLANG_CC} -o Colleen ${COLLEEN_C}; ./Colleen > ${COLEEN_OUT};
-diff ${COLEEN_OUT} ${COLLEEN_C} 
-if [ $? -eq 0 ] ; then
-echo -e "${YELLOW}${COLLEEN_C}\t\t${RESET}${GREEN}OK${RESET}"
-else
-echo -e "${YELLOW}${COLLEEN_C}\t\t${RESET}${RED}KO${RESET}"
-fi
+diff_file () {
+	# echo  "1 |$1| 2 |$2|" 
+	diff $1 $2 
+	if [ $? -eq 0 ] ; then
+		echo -e "${YELLOW}${1} ${RESET}${GREEN}OK${RESET}"
+	else
+		echo -e "${YELLOW}${1} ${RESET}${RED}KO${RESET}"
+	fi
+}
 
+${CLANG_CC} -o Colleen ${COLLEEN_C}; ./Colleen > ${COLLEEN_OUT};
+diff_file ${COLLEEN_C} ${COLLEEN_OUT} 
 ${CLANG_CC} -o Grace ${GRACE_C}; ./Grace ;
-diff ${GRACE_C} ${GRACE_C_OUTPUT}
-if [ $? -eq 0 ] ; then
-echo -e "${YELLOW}${GRACE_C}\t\t${RESET}${GREEN}OK${RESET}"
-else
-echo -e "${YELLOW}${GRACE_C}\t\t${RESET}${RED}KO${RESET}"
-fi
-
+diff_file ${GRACE_C} ${GRACE_C_OUTPUT}
 ${CLANG_CC} -o Sully ${SULLY_C}; ./Sully ; 
-diff ${SULLY_C} ${SULLY_C_OUT}
-if [ $? -eq 0 ] ; then
-echo -e "${YELLOW}${SULLY_C}\t\t${RESET}${GREEN}OK${RESET}"
-else
-echo -e "${YELLOW}${SULLY_C}\t\t${RESET}${RED}KO${RESET}"
-fi
-
+diff_file ${SULLY_C} ${SULLY_C_OUT}
 # Call ASM makefile
 ${CALL_ASM_DIR};
 # test Colleen ASM version
-./src/ASM/Colleen > ${COLEEN_OUT};
-diff ${COLEEN_OUT} ${COLLEEN_ASM}
-if [ $? -eq 0 ] ; then
-echo -e "${YELLOW}${COLLEEN_ASM}\t${RESET}${GREEN}OK${RESET}"
-else
-echo -e "${YELLOW}${COLLEEN_ASM}\t${RESET}${RED}KO${RESET}"
-fi
-# test Grace ASM version
+./src/ASM/Colleen > ${COLLEEN_OUT};
+diff_file ${COLLEEN_ASM} ${COLLEEN_OUT}
 ./src/ASM/Grace ;
-diff ${GRACE_ASM_OUTPUT} ${GRACE_ASM}
-if [ $? -eq 0 ] ; then
-echo -e "${YELLOW}${GRACE_ASM}\t\t${RESET}${GREEN}OK${RESET}"
-else
-echo -e "${YELLOW}${GRACE_ASM}\t\t${RESET}${RED}KO${RESET}"
-fi
-
+diff_file ${GRACE_ASM_OUTPUT} ${GRACE_ASM}
 ./src/ASM/Sully ;
-diff ${SULLY_ASM_OUT} ${SULLY_ASM}
-if [ $? -eq 0 ] ; then
-echo -e "${YELLOW}${SULLY_ASM}\t\t${RESET}${GREEN}OK${RESET}"
-else
-echo -e "${YELLOW}${SULLY_ASM}\t\t${RESET}${RED}KO${RESET}"
-fi
+diff_file ${SULLY_ASM_OUT} ${SULLY_ASM}
 
 ./${SULLY_CLEAR} c
 ./${SULLY_CLEAR} o
 ./${SULLY_CLEAR} s
-rm ${COLEEN_OUT} Colleen Sully Grace ${GRACE_C_OUTPUT} ${GRACE_ASM_OUTPUT};
+rm ${COLLEEN_OUT} Colleen Sully Grace ${GRACE_C_OUTPUT} ${GRACE_ASM_OUTPUT};
 ${CALL_ASM_DIR} fclean
