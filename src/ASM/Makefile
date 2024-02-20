@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ycaro <ycaro@student.42.fr>                +#+  +:+       +#+         #
+#    By: nfour <<marvin@42.fr>>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/12 16:33:38 by nfour             #+#    #+#              #
-#    Updated: 2024/02/20 07:11:48 by ycaro            ###   ########.fr        #
+#    Updated: 2024/02/20 11:21:14 by nfour            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ COLLEEN_OBJ=Colleen.o
 GRACE_OBJ=Grace.o
 SULLY_OBJ=Sully.o
 
-# CLEAR_SULLY = ./clear_sully.sh
+CLEAR_SULLY = ./clear_sully.sh
 GRACE_OUT = Grace_kid.s
 
 RM	= rm -f
@@ -68,7 +68,8 @@ fclean:		clean
 			@echo "\033[6;33m -----\tCleaning  ${GRACE_NAME} done   ----- \033[0m"
 			@echo "\033[6;33m -----\tCleaning  ${SULLY_NAME} done   ----- \033[0m"
 			@${RM} ${COLLEEN_NAME} ${GRACE_NAME} ${SULLY_NAME}
-			@${CLEAR_SULLY}
+			@${CLEAR_SULLY} s
+			@${CLEAR_SULLY} o
 
 re:			fclean all
 
