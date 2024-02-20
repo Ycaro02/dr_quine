@@ -14,12 +14,14 @@ do
     NEW_NAME=${NAME}${NB}${EXT}
     if [ -f ${NEW_NAME} ]
     then
-        echo -e "${YELLOW} rm ${NEW_NAME} ${RESET}" && rm ${NEW_NAME}
+        # echo -e "${YELLOW} rm ${NEW_NAME} ${RESET}" &&
+		rm ${NEW_NAME}
     fi
     NEW_NAME=${NAME}${NB}
     if [ -f ${NEW_NAME} ]
     then
-        echo -e "${YELLOW} rm ${NEW_NAME} ${RESET}" && rm ${NEW_NAME}
+        # echo -e "${YELLOW} rm ${NEW_NAME} ${RESET}" &&
+		rm ${NEW_NAME}
     fi
 
 done
