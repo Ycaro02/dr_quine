@@ -14,7 +14,7 @@ COLLEEN_OBJ=Colleen.o
 GRACE_OBJ=Grace.o
 SULLY_OBJ=Sully.o
 
-CLEAR_SULLY = ./clear_sully.sh
+CLEAR_SULLY = ../ASM/clear_sully.sh c
 GRACE_OUT = Grace_kid.c
 
 RM	= rm -f
