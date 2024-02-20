@@ -14,12 +14,14 @@ COLEEN_OUT=COLEEN_output
 # GRACE QUINE
 GRACE_C=src/C/Grace.c
 GRACE_C_OUTPUT=Grace_kid.c
+GRACE_ASM=src/ASM/Grace.s
+GRACE_ASM_OUTPUT=Grace_kid.s
+
 # SHULLY QUINE
 SULLY_C=src/C/Sully.c
 SULLY_CLEAR=src/C/clear_sully.sh
 
 CALL_ASM_DIR="make -s -C src/ASM"
-
 CLANG_CC="clang -Wall -Wextra -Werror"
 
 ${CLANG_CC} -o Colleen ${COLLEEN_C}; ./Colleen > ${COLEEN_OUT};
@@ -46,13 +48,24 @@ else
 echo -e "${YELLOW}${SULLY_C}\t\t${RESET}${RED}KO${RESET}"
 fi
 
-${CALL_ASM_DIR} && ./src/ASM/Colleen > ${COLEEN_OUT};
+# Call ASM makefile
+${CALL_ASM_DIR};
+# test Colleen ASM version
+./src/ASM/Colleen > ${COLEEN_OUT};
 diff ${COLEEN_OUT} ${COLLEEN_ASM}
 if [ $? -eq 0 ] ; then
 echo -e "${YELLOW}${COLLEEN_ASM}\t${RESET}${GREEN}OK${RESET}"
 else
 echo -e "${YELLOW}${COLLEEN_ASM}\t${RESET}${RED}KO${RESET}"
 fi
+# test Grace ASM version
+./src/ASM/Grace
+diff ${GRACE_ASM_OUTPUT} ${GRACE_ASM}
+if [ $? -eq 0 ] ; then
+echo -e "${YELLOW}${GRACE_ASM}\t\t${RESET}${GREEN}OK${RESET}"
+else
+echo -e "${YELLOW}${GRACE_ASM}\t\t${RESET}${RED}KO${RESET}"
+fi
 
 ./${SULLY_CLEAR}
-rm ${COLEEN_OUT} Colleen Sully Grace Grace_kid.c;
+rm ${COLEEN_OUT} Colleen Sully Grace ${GRACE_C_OUTPUT} ${GRACE_ASM_OUTPUT};

@@ -12,7 +12,7 @@
 
 # nasm -f elf64 -o Coleen.o Coleen.s && gcc -Wall -Wextra -Werror -g Coleen.o
 
-NASM	= 	nasm -f elf64 -o
+NASM	= 	nasm -f elf64 -g -o 
 
 COLLEEN_NAME=Colleen
 GRACE_NAME=Grace

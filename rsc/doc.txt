@@ -5,7 +5,7 @@ https://codegolf.stackexchange.com/questions/577/assembly-language-quine
 https://www.geeksforgeeks.org/write-running-c-code-without-main/
 
 https://cs.lmu.edu/~ray/notes/nasmtutorial/ --> ASM DOC
-
+https://redirect.cs.umbc.edu/~chang/cs313.f02/nasmdoc/nasmdoc.pdf
 
 https://www.tutorialspoint.com/assembly_programming/
 
@@ -16,3 +16,10 @@ omg using c function in assembly
 ; https://www.tortall.net/projects/yasm/manual/html/objfmt-elf64.html
 ;https://stackoverflow.com/questions/52126328/cant-call-c-standard-library-function-on-64-bit-linux-from-assembly-yasm-code/52131094#52131094  : Good link
 ;https://stackoverflow.com/questions/48189051/relocation-r-x86-64-32s-against-data-cannot-be-used-when-making-a-shared-object
+
+
+sys_read: 0
+sys_write: 1 
+sys_open: 2
+sys_close: 3
+sys_access: 21
