@@ -30,7 +30,6 @@ SULLY_BASH_OUT=Sully_5.sh
 
 SULLY_CLEAR=src/ASM/clear_sully.sh
 
-
 CALL_ASM_DIR="make -s -C src/ASM"
 CLANG_CC="clang -Wall -Wextra -Werror"
 
