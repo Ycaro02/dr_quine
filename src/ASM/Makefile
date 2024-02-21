@@ -26,7 +26,7 @@ COLLEEN_OBJ=Colleen.o
 GRACE_OBJ=Grace.o
 SULLY_OBJ=Sully.o
 
-CLEAR_SULLY = ./clear_sully.sh
+CLEAR_SULLY = ../../rsc/script/clear_sully.sh
 GRACE_OUT = Grace_kid.s
 
 RM	= rm -f

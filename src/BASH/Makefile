@@ -11,7 +11,7 @@ COLLEEN_SRC=Colleen.sh
 GRACE_SRC=Grace.sh
 SULLY_SRC=Sully.sh
 
-CLEAR_SULLY = ../ASM/clear_sully.sh sh
+CLEAR_SULLY = ../../rsc/script/clear_sully.sh
 GRACE_OUT = Grace_kid.sh
 
 RM	= rm -rf
